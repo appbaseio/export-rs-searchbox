@@ -16,7 +16,7 @@
     "start": "react-scripts start",
     "👇🏻 reference_answer_DO_NOT_RUN": "https://github.com/facebook/create-react-app/issues/1005#issuecomment-258334990",
     "build": "react-scripts build && npm run build:clean",
-    "build:clean": "cd build && mv static/js/*.js main.js && mv static/css/*.css main.css && rm -r static",
+    "build:clean": "cd build && mv static/js/*.js static/js/main.js && mv static/css/*.css static/css/main.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
