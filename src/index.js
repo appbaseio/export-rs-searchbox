@@ -88,7 +88,6 @@ const renderById = async (id) => {
             ...recent,
           }}
           featuredSuggestionsConfig={{
-            featuredSuggestionsGroupId: id, // # mandatory
             maxSuggestionsPerSection: layout.maxSuggestionsPerSection,
             sectionsOrder: layout.sectionsOrder,
           }}
