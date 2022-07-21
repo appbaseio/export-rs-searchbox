@@ -77,6 +77,7 @@ const renderById = async (id) => {
       >
         <SearchBox
           componentId={searchBoxId}
+          enableIndexSuggestions={false}
           enablePopularSuggestions
           enableRecentSuggestions
           enableFeaturedSuggestions
