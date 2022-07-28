@@ -4,7 +4,7 @@ import { ReactiveBase, SearchBox } from "@appbaseio/reactivesearch";
 
 import "./index.css";
 import {
-  // fetchSearchBoxPreferences,
+  fetchSearchBoxPreferences,
   getPropsById,
   isIdAvailble,
 } from "./utils/helper";
@@ -20,50 +20,11 @@ const renderById = async (id) => {
       recent,
       featured: { design, layout },
     },
-  } = {
-    id: "document-search",
-    enabled: true,
-    hidden: false,
-    searchbox: {
-      popular: {
-        size: 5,
-        index: "good-books-ds",
-        minChars: 3,
-        minCount: 1,
-        customEvents: {
-          platform: "mac",
-        },
-        sectionLabel: "Recent",
-      },
-      recent: {
-        size: 5,
-        index: "good-books-ds",
-        minHits: 1,
-        minChars: 3,
-        customEvents: {
-          platform: "mac",
-        },
-        sectionLabel: "Recent",
-      },
-      featured: {
-        design: {
-          primaryColor: "red",
-          theme: "dark",
-        },
-        layout: {
-          maxSuggestionsPerSection: 3,
-          sectionsOrder: ["examples", "docs"],
-        },
-      },
-    },
-    created_at: 1657667251,
-    updated_at: 1657667259,
-  };
-  // await fetchSearchBoxPreferences({
-  //     url: clusterUrl,
-  //     credentials,
-  //     searchBoxId,
-  //   })
+  } = await fetchSearchBoxPreferences({
+    url: clusterUrl,
+    credentials,
+    searchBoxId,
+  });
 
   const root = ReactDOM.createRoot(document.getElementById(id));
 
@@ -90,6 +51,7 @@ const renderById = async (id) => {
           featuredSuggestionsConfig={{
             maxSuggestionsPerSection: layout.maxSuggestionsPerSection,
             sectionsOrder: layout.sectionsOrder,
+            searchboxId: searchBoxId,
           }}
           themePreset={design.theme}
         />
