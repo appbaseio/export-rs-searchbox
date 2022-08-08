@@ -51,9 +51,9 @@ const renderById = async (id) => {
           featuredSuggestionsConfig={{
             maxSuggestionsPerSection: layout.maxSuggestionsPerSection,
             sectionsOrder: layout.sectionsOrder,
-            searchboxId: searchBoxId,
           }}
           themePreset={design.theme}
+          searchboxId={searchBoxId}
         />
       </ReactiveBase>,
       root
