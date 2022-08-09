@@ -35,13 +35,14 @@ const renderById = async (id) => {
         credentials={credentials}
         enableAppbase
         app="test"
+        theme={{ colors: { primaryColor: design.primaryColor } }}
       >
         <SearchBox
           componentId={searchBoxId}
-          enableIndexSuggestions={false}
-          enablePopularSuggestions
-          enableRecentSuggestions
-          enableFeaturedSuggestions
+          enableIndexSuggestions={design.enableIndexSuggestions}
+          enablePopularSuggestions={design.enablePopularSuggestions}
+          enableRecentSuggestions={design.enableRecentSuggestions}
+          enableFeaturedSuggestions={design.enableFeaturedSuggestions}
           popularSuggestionsConfig={{
             ...popular,
           }}
@@ -49,11 +50,15 @@ const renderById = async (id) => {
             ...recent,
           }}
           featuredSuggestionsConfig={{
-            maxSuggestionsPerSection: layout.maxSuggestionsPerSection,
+            ...(layout.maxSuggestionsPerSection
+              ? { maxSuggestionsPerSection: layout.maxSuggestionsPerSection }
+              : {}),
             sectionsOrder: layout.sectionsOrder,
           }}
           themePreset={design.theme}
           searchboxId={searchBoxId}
+          showVoiceSearch={design.enableVoiceSearch}
+          highlight={design.highlight}
         />
       </ReactiveBase>,
       root
