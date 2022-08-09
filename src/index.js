@@ -36,6 +36,7 @@ const renderById = async (id) => {
         enableAppbase
         app="test"
         theme={{ colors: { primaryColor: design.primaryColor } }}
+        themePreset={design.theme}
       >
         <SearchBox
           componentId={searchBoxId}
@@ -55,7 +56,6 @@ const renderById = async (id) => {
               : {}),
             sectionsOrder: layout.sectionsOrder,
           }}
-          themePreset={design.theme}
           searchboxId={searchBoxId}
           showVoiceSearch={design.enableVoiceSearch}
           highlight={design.highlight}
