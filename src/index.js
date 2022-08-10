@@ -34,13 +34,18 @@ const renderById = async (id) => {
         url={clusterUrl}
         credentials={credentials}
         enableAppbase
-        app="test"
-        theme={{ colors: { primaryColor: design.primaryColor } }}
+        app="featured_suggestions"
+        theme={{
+          colors: {
+            primaryColor: design.primaryColor,
+            textColor: design.textColor,
+          },
+        }}
         themePreset={design.theme}
       >
         <SearchBox
           componentId={searchBoxId}
-          enableIndexSuggestions={design.enableIndexSuggestions}
+          enableIndexSuggestions={false}
           enablePopularSuggestions={design.enablePopularSuggestions}
           enableRecentSuggestions={design.enableRecentSuggestions}
           enableFeaturedSuggestions={design.enableFeaturedSuggestions}
@@ -54,7 +59,10 @@ const renderById = async (id) => {
             ...(layout.maxSuggestionsPerSection
               ? { maxSuggestionsPerSection: layout.maxSuggestionsPerSection }
               : {}),
-            sectionsOrder: layout.sectionsOrder,
+            ...(Array.isArray(layout.sectionsOrder) &&
+            layout.sectionsOrder.length
+              ? { sectionsOrder: layout.sectionsOrder }
+              : {}),
           }}
           searchboxId={searchBoxId}
           showVoiceSearch={design.enableVoiceSearch}
