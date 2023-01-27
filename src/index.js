@@ -67,23 +67,23 @@ const renderById = async (id) => {
           searchboxId={searchBoxId}
           showVoiceSearch={design.enableVoiceSearch}
           highlight={design.highlight}
-          iconPosition={customizeSearchBoxForm.value.iconPosition}
-          focusShortcuts={customizeSearchBoxForm.value.focusShortcuts}
-          placeholder={customizeSearchBoxForm.value.placeholder}
+          iconPosition={design.iconPosition}
+          focusShortcuts={design.focusShortcuts}
+          placeholder={design.placeholder}
           addonBefore={
-            customizeSearchBoxForm.value.addonBefore ? (
+            design.addonBefore ? (
               <div
                 dangerouslySetInnerHTML={{
-                  __html: customizeSearchBoxForm.value.addonBefore,
+                  __html: design.addonBefore,
                 }}
               />
             ) : null
           }
           addonAfter={
-            customizeSearchBoxForm.value.addonAfter ? (
+            design.addonAfter ? (
               <div
                 dangerouslySetInnerHTML={{
-                  __html: customizeSearchBoxForm.value.addonAfter,
+                  __html: design.addonAfter,
                 }}
               />
             ) : null
