@@ -67,6 +67,27 @@ const renderById = async (id) => {
           searchboxId={searchBoxId}
           showVoiceSearch={design.enableVoiceSearch}
           highlight={design.highlight}
+          iconPosition={customizeSearchBoxForm.value.iconPosition}
+          focusShortcuts={customizeSearchBoxForm.value.focusShortcuts}
+          placeholder={customizeSearchBoxForm.value.placeholder}
+          addonBefore={
+            customizeSearchBoxForm.value.addonBefore ? (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: customizeSearchBoxForm.value.addonBefore,
+                }}
+              />
+            ) : null
+          }
+          addonAfter={
+            customizeSearchBoxForm.value.addonAfter ? (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: customizeSearchBoxForm.value.addonAfter,
+                }}
+              />
+            ) : null
+          }
         />
       </ReactiveBase>,
       root
