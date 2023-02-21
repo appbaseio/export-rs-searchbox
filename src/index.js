@@ -8,6 +8,7 @@ import {
   getPropsById,
   isIdAvailble,
 } from "./utils/helper";
+import DOMPurify from "dompurify";
 
 const renderById = async (id) => {
   const container = isIdAvailble(id);
@@ -70,11 +71,12 @@ const renderById = async (id) => {
           iconPosition={design.iconPosition}
           focusShortcuts={design.focusShortcuts}
           placeholder={design.placeholder}
+          iconURL={design.iconURL}
           addonBefore={
             design.addonBefore ? (
               <div
                 dangerouslySetInnerHTML={{
-                  __html: design.addonBefore,
+                  __html: DOMPurify.sanitize(design.addonBefore),
                 }}
               />
             ) : null
@@ -83,7 +85,7 @@ const renderById = async (id) => {
             design.addonAfter ? (
               <div
                 dangerouslySetInnerHTML={{
-                  __html: design.addonAfter,
+                  __html: DOMPurify.sanitize(design.addonAfter),
                 }}
               />
             ) : null
