@@ -8,6 +8,7 @@ import {
   getPropsById,
   isIdAvailble,
 } from "./utils/helper";
+import DOMPurify from "dompurify";
 
 const renderById = async (id) => {
   const container = isIdAvailble(id);
@@ -67,6 +68,28 @@ const renderById = async (id) => {
           searchboxId={searchBoxId}
           showVoiceSearch={design.enableVoiceSearch}
           highlight={design.highlight}
+          iconPosition={design.iconPosition}
+          focusShortcuts={design.focusShortcuts}
+          placeholder={design.placeholder}
+          iconURL={design.iconURL}
+          addonBefore={
+            design.addonBefore ? (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(design.addonBefore),
+                }}
+              />
+            ) : null
+          }
+          addonAfter={
+            design.addonAfter ? (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(design.addonAfter),
+                }}
+              />
+            ) : null
+          }
         />
       </ReactiveBase>,
       root
