@@ -50,6 +50,7 @@ const renderById = async (id) => {
           enablePopularSuggestions={design.enablePopularSuggestions}
           enableRecentSuggestions={design.enableRecentSuggestions}
           enableFeaturedSuggestions={design.enableFeaturedSuggestions}
+          enableFAQSuggestions={design.enableFAQSuggestions}
           popularSuggestionsConfig={{
             ...popular,
           }}
