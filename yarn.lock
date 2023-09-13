@@ -31,10 +31,10 @@
   dependencies:
     cross-fetch "^3.0.4"
 
-"@appbaseio/reactivecore@10.0.0-alpha.27":
-  version "10.0.0-alpha.27"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivecore/-/reactivecore-10.0.0-alpha.27.tgz#9f2f8601676cebed7edf97ee7134980d04245daa"
-  integrity sha512-T2QE/PZN+/cQ+hf9vzSdjBWYA0/HlBFaZkkDjMyppUwlv9Ho5Ij1nmexaOAAb0GbjpDx5EvkrPdldnQLbt0sqA==
+"@appbaseio/reactivecore@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivecore/-/reactivecore-10.1.0.tgz#13851d59999eda9219e1f77375c0cae59f08a1cd"
+  integrity sha512-lIdOHA5CNHdlTtt4sPOUYoR11Lgpb3tZKrZ0YcyMz3+yzIsDyhjPKfUFtE3R2GH2HGP8PGFQKy7cKZ0iLSYu+A==
   dependencies:
     cross-fetch "^3.0.4"
     dayjs "^1.11.7"
@@ -42,17 +42,17 @@
     redux "^4.0.0"
     redux-thunk "^2.3.0"
 
-"@appbaseio/reactivesearch@4.0.0-rc.19":
-  version "4.0.0-rc.19"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-4.0.0-rc.19.tgz#88be672180877e6ed6b14e8c6bbce8752af1f22d"
-  integrity sha512-R5F7TmhV8sw2hccuy+oH5yMTDzxZ4+/cp6ySCReZmFJZOSzpsOgOwdEFCIiNFQrBVzHYCcK2bdmf89V4pMvwKg==
+"@appbaseio/reactivesearch@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-4.1.0.tgz#77fc1a6eac2d028bf18a10e7251d0621e738685c"
+  integrity sha512-psQJOs7fiL20cG1316y7hUtNs4idIbCgpz4ivzmY7dt3ObBaEuqAGIQhAITSzSJ1e4VxRH/jl2lzMk8Tt9wfCg==
   dependencies:
     "@appbaseio/analytics" "^1.2.0-alpha.1"
-    "@appbaseio/reactivecore" "10.0.0-alpha.27"
+    "@appbaseio/reactivecore" "10.1.0"
     "@appbaseio/rheostat" "^1.0.0-alpha.15"
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
-    appbase-js "^5.2.0"
+    appbase-js "^5.3.3"
     cross-env "^5.2.0"
     dayjs "^1.11.7"
     downshift "^1.31.2"
@@ -2604,10 +2604,10 @@ anymatch@^3.0.3, anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-appbase-js@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/appbase-js/-/appbase-js-5.2.0.tgz#990da7227ae89cd0a002fdfc85428a001306ac27"
-  integrity sha512-4B/xXivn7i6CATxcRZauDplCL3m9imOmbLH7j+cW4xwkqSN3aHDtj/OuvJDQqaMG0Awon8HUiiuwdh0+yY9DAw==
+appbase-js@^5.3.3:
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/appbase-js/-/appbase-js-5.3.4.tgz#c30add29133fcfd7cc938a710a347cb89377670e"
+  integrity sha512-rbjCC7jmcPh1cjnW3W7TjTugQpLOB8SrPIdnkKwrNDdsl8d0nzPTJH4/082UTnkvlMkjm4WYY2HYCRl2vpDlpw==
   dependencies:
     cross-fetch "^3.1.5"
     querystring "^0.2.0"
