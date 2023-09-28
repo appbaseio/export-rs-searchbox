@@ -35,7 +35,6 @@ const renderById = async (id) => {
       <ReactiveBase
         url={clusterUrl}
         credentials={credentials}
-        enableAppbase
         // Older searchbox didn't have a index field. So, they had "featured_suggestions" passed as the index.
         app={index || "featured_suggestions"}
         endpoint={
@@ -59,7 +58,6 @@ const renderById = async (id) => {
       >
         <SearchBox
           componentId={searchBoxId}
-          enableIndexSuggestions={false}
           enablePopularSuggestions={design.enablePopularSuggestions}
           enableRecentSuggestions={design.enableRecentSuggestions}
           enableFeaturedSuggestions={design.enableFeaturedSuggestions}
@@ -74,12 +72,12 @@ const renderById = async (id) => {
             ...recent,
           }}
           featuredSuggestionsConfig={{
-            ...(layout.maxSuggestionsPerSection
-              ? { maxSuggestionsPerSection: layout.maxSuggestionsPerSection }
+            ...(layout?.maxSuggestionsPerSection
+              ? { maxSuggestionsPerSection: layout?.maxSuggestionsPerSection }
               : {}),
-            ...(Array.isArray(layout.sectionsOrder) &&
-            layout.sectionsOrder.length
-              ? { sectionsOrder: layout.sectionsOrder }
+            ...(Array.isArray(layout?.sectionsOrder) &&
+            layout?.sectionsOrder.length
+              ? { sectionsOrder: layout?.sectionsOrder }
               : {}),
           }}
           searchboxId={searchBoxId}
