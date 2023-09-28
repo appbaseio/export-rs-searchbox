@@ -13,7 +13,8 @@ import DOMPurify from "dompurify";
 const renderById = async (id) => {
   const container = isIdAvailble(id);
 
-  const { searchBoxId, clusterUrl, credentials } = getPropsById(id);
+  const { searchBoxId, clusterUrl, credentials, index, pipeline } =
+    getPropsById(id);
 
   const {
     searchbox: {
@@ -35,7 +36,19 @@ const renderById = async (id) => {
         url={clusterUrl}
         credentials={credentials}
         enableAppbase
-        app="featured_suggestions"
+        // Older searchbox didn't have a index field. So, they had "featured_suggestions" passed as the index.
+        app={index || "featured_suggestions"}
+        endpoint={
+          pipeline?.id
+            ? {
+                url: `${clusterUrl}${pipeline.url}`,
+                headers: {
+                  Authorization: `Basic ${btoa(credentials)}`,
+                },
+                method: pipeline?.method,
+              }
+            : undefined
+        }
         theme={{
           colors: {
             primaryColor: design.primaryColor,
@@ -50,6 +63,8 @@ const renderById = async (id) => {
           enablePopularSuggestions={design.enablePopularSuggestions}
           enableRecentSuggestions={design.enableRecentSuggestions}
           enableFeaturedSuggestions={design.enableFeaturedSuggestions}
+          // Below is temporarily disabled due to an issue with the backend, which is returning empty hits
+          // enableEndpointSuggestions={form.value.enableEndpointSuggestions}
           enableFAQSuggestions={design.enableFAQSuggestions}
           enableAI={design.enableAI}
           popularSuggestionsConfig={{
