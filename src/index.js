@@ -82,6 +82,7 @@ const renderById = async (id) => {
           }}
           searchboxId={searchBoxId}
           showVoiceSearch={design.enableVoiceSearch}
+          showImageSearch={design.enableImageSearch}
           highlight={design.highlight}
           iconPosition={design.iconPosition}
           focusShortcuts={design.focusShortcuts}
