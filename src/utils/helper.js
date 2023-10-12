@@ -7,6 +7,10 @@ export const getPropsById = (id) => {
       searchBoxId: container.getAttribute("searchbox-id"),
       clusterUrl: container.getAttribute("cluster-url"),
       credentials: container.getAttribute("credentials"),
+      index: container.getAttribute("index"),
+      pipeline: container.getAttribute("pipeline")
+        ? JSON.parse(container.getAttribute("pipeline"))
+        : {},
     };
   }
   return null;
