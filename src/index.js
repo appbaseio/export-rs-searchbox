@@ -5,6 +5,7 @@ import { ReactiveBase, SearchBox } from "@appbaseio/reactivesearch";
 import "./index.css";
 import {
   fetchSearchBoxPreferences,
+  getFunctionFromString,
   getPropsById,
   isIdAvailble,
 } from "./utils/helper";
@@ -21,6 +22,7 @@ const renderById = async (id) => {
       popular,
       recent,
       featured: { design, layout },
+      document: documentSuggestion,
     },
   } = await fetchSearchBoxPreferences({
     url: clusterUrl,
@@ -29,6 +31,9 @@ const renderById = async (id) => {
   });
 
   const root = ReactDOM.createRoot(document.getElementById(id));
+  const renderDocumentSuggestion = documentSuggestion?.renderSuggestion
+    ? getFunctionFromString(documentSuggestion?.renderSuggestion)
+    : null;
 
   if (container) {
     root.render(
@@ -61,8 +66,10 @@ const renderById = async (id) => {
           enablePopularSuggestions={design.enablePopularSuggestions}
           enableRecentSuggestions={design.enableRecentSuggestions}
           enableFeaturedSuggestions={design.enableFeaturedSuggestions}
+          enableDocumentSuggestions={design.enableDocumentSuggestions}
           // Below is temporarily disabled due to an issue with the backend, which is returning empty hits
-          // enableEndpointSuggestions={form.value.enableEndpointSuggestions}
+          enableEndpointSuggestions={design.enableEndpointSuggestions}
+          enableIndexSuggestions={!!index}
           enableFAQSuggestions={design.enableFAQSuggestions}
           enableAI={design.enableAI}
           popularSuggestionsConfig={{
@@ -80,6 +87,19 @@ const renderById = async (id) => {
               ? { sectionsOrder: layout?.sectionsOrder }
               : {}),
           }}
+          documentSuggestionsConfig={{
+            sectionLabel: documentSuggestion?.sectionLabel || undefined,
+          }}
+          renderItem={
+            renderDocumentSuggestion && design.enableDocumentSuggestions
+              ? (suggestion) => {
+                  if (suggestion._suggestion_type === "document") {
+                    return renderDocumentSuggestion(suggestion);
+                  }
+                  return null;
+                }
+              : undefined
+          }
           searchboxId={searchBoxId}
           showVoiceSearch={design.enableVoiceSearch}
           showImageSearch={design.enableImageSearch}
@@ -106,6 +126,7 @@ const renderById = async (id) => {
               />
             ) : null
           }
+          showDistinctSuggestions
         />
       </ReactiveBase>,
       root
