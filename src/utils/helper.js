@@ -1,3 +1,6 @@
+import { transform } from "@babel/standalone";
+import React from "react";
+
 export const isIdAvailble = (id) => document.getElementById(id);
 
 export const getPropsById = (id) => {
@@ -35,4 +38,28 @@ export const fetchSearchBoxPreferences = ({
       console.log("error", error);
       return error;
     });
+};
+
+/**
+ * Assumption:
+ *  functionString would contain comments and one function definition only.
+ *  The function definition needs to be the classic function definition. i.e. using function keyword.
+ */
+
+/**
+ *
+ * @param {string} functionString
+ * @returns {function} convertedFunction
+ */
+export const getFunctionFromString = (functionString) => {
+  const transpiledCode = transform(functionString, {
+    presets: ["react"],
+  }).code;
+  // Remove comments and trim spaces
+  const cleanCode = transpiledCode
+    .replace(/(\/\*[\s\S]*?\*\/)|(\/\/.+)/g, "") // Remove comments
+    .trim();
+  // eslint-disable-next-line
+  const func = new Function("React", `return (${cleanCode})`)(React);
+  return func;
 };

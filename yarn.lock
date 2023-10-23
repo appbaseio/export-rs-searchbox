@@ -31,10 +31,10 @@
   dependencies:
     cross-fetch "^3.0.4"
 
-"@appbaseio/reactivecore@10.2.0-alpha.3":
-  version "10.2.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivecore/-/reactivecore-10.2.0-alpha.3.tgz#f1047a3b62c3fdfb434a913d3b0c558d980f7cf8"
-  integrity sha512-kkyaTndFziajODlSKMR9b1KtqghR2s2kc/eQ4/cMLsbauSSsj1YNrJoStcVWPA8IMcdkzctr6LwSiYokiXz44w==
+"@appbaseio/reactivecore@10.2.0":
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivecore/-/reactivecore-10.2.0.tgz#44d3ad3f5f40062e24fdfadb877ab7dc2efcd4a3"
+  integrity sha512-unx9e8HLw/y7SO/1nL9ehpo95SsWsp4umoDvIraRxXJ3sfRYl+5dB91b2U9DG8D1XqBgbf18JTsfktu9yFQjDg==
   dependencies:
     cross-fetch "^3.0.4"
     dayjs "^1.11.7"
@@ -42,13 +42,13 @@
     redux "^4.0.0"
     redux-thunk "^2.3.0"
 
-"@appbaseio/reactivesearch@4.2.0-alpha.4":
-  version "4.2.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-4.2.0-alpha.4.tgz#014de74bc1abf2ec8e30681cd74fd39d2e11d99b"
-  integrity sha512-7UmxTFr2uhE8IHB5VNC7uLq36bRFA3i7pobLGesnemDDYgYbwj7AvL7j9H/nIsiCUR04TflXXBDzagVswlJQBQ==
+"@appbaseio/reactivesearch@4.3.0-alpha":
+  version "4.3.0-alpha"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-4.3.0-alpha.tgz#c7b535c8355aedf9d405354fa6791d9ec6a6e709"
+  integrity sha512-M7ckA+cC/Ju8jBQstln0M7/yboO2dF5x2BBUPZhN5LD9WYfkaV3VZPhS7k/tfIXs6zSEKU73GISRuxX30yjNxg==
   dependencies:
     "@appbaseio/analytics" "^1.2.0-alpha.1"
-    "@appbaseio/reactivecore" "10.2.0-alpha.3"
+    "@appbaseio/reactivecore" "10.2.0"
     "@appbaseio/rheostat" "^1.0.0-alpha.15"
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
@@ -1094,6 +1094,11 @@
   integrity sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==
   dependencies:
     regenerator-runtime "^0.13.4"
+
+"@babel/standalone@^7.23.2":
+  version "7.23.2"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.23.2.tgz#1c6348bab159d24623907eb5866393bc7ab5a380"
+  integrity sha512-VJNw7OS26JvB6rE9XpbT6uQeQIEBWU5eeHGS4VR/+/4ZoKdLBXLcy66ZVJ/9IBkK1RMp8B0cohvhzdKWtJAGmg==
 
 "@babel/template@^7.18.10", "@babel/template@^7.18.6", "@babel/template@^7.3.3":
   version "7.18.10"
